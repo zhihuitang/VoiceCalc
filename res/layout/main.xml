@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/zhengfu"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_vertical"
+    android:background="#ff808080"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="6dip"
+        android:layout_marginRight="6dip"
+        android:layout_marginTop="4dip"
+        android:layout_weight="1.5"
+        android:maxLines="@integer/maxline"
+        android:focusable="false"
+        android:textColor="#000000"
+        android:gravity="center_vertical|right"
+        android:background="@drawable/edit_text_bg"
+        android:textSize="25sp" >
+
+    </EditText>
+
+    <TableLayout
+        android:id="@+id/tablelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dip"
+        android:layout_weight="10" >
+
+        <LinearLayout
+            android:id="@+id/linearlayout02"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/button_c"
+                android:layout_width="50dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/shan"
+                android:textSize="25sp" >
+            </Button>
+
+            <com.tang.voicecalc.MyImageButton
+                android:id="@+id/button_back"
+                style="@style/button_style1_red"
+                android:layout_width="50dip"
+                android:layout_weight="1">
+
+            </com.tang.voicecalc.MyImageButton>
+        </LinearLayout>
+
+        <TableRow
+            android:id="@+id/row0"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/one"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/two"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/three"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button_plus"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/jia"
+                android:textSize="25sp" >
+            </Button>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/fore"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/five"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/six"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button_substract"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/jian"
+                android:textSize="25sp" >
+            </Button>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/seven"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/eight"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/nine"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button_multiply"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/cheng"
+                android:textSize="25sp" >
+            </Button>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/row3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/button_dot"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/dihao"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/zero"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button_minus"
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/zhengfu"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/button_divide"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/chu"
+                android:textSize="25sp" >
+            </Button>
+        </TableRow>
+
+        <LinearLayout
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button_bracket_left"
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/bracket_left"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button_bracket_right"
+                android:layout_width="50dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/bracket_right"
+                android:textSize="25sp" >
+            </Button>
+
+            <Button
+                android:id="@+id/button_equal"
+                android:layout_width="40dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:text="@string/dengyu"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+    </TableLayout>
+
+</LinearLayout>
