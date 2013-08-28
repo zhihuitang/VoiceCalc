@@ -12,93 +12,107 @@
     <EditText
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="93dp"
         android:layout_gravity="center"
         android:layout_marginLeft="6dip"
         android:layout_marginRight="6dip"
         android:layout_marginTop="4dip"
-        android:layout_weight="1.5"
-        android:maxLines="@integer/maxline"
-        android:focusable="false"
-        android:textColor="#000000"
-        android:gravity="center_vertical|right"
         android:background="@drawable/edit_text_bg"
-        android:textSize="25sp" >
-
+        android:focusable="false"
+        android:gravity="center_vertical|right"
+        android:maxLines="@integer/maxline"
+        android:textColor="#000000"
+        android:textSize="30sp" >
     </EditText>
 
     <TableLayout
         android:id="@+id/tablelayout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dip"
+        android:layout_height="fill_parent"
+        android:layout_margin="2dip"
         android:layout_weight="10" >
 
         <LinearLayout
-            android:id="@+id/linearlayout02"
+            android:id="@+id/tableRow1"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_height="65dp"
+            android:orientation="horizontal" >
 
-            <Button
+            <com.tang.voicecalc.MyImageButton
                 android:id="@+id/button_c"
-                android:layout_width="50dip"
+                android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
+                android:layout_margin="4dip"
                 android:layout_weight="1"
-                android:text="@string/shan"
-                android:textSize="25sp" >
-            </Button>
+                android:background="@drawable/style1_red"
+                android:scaleType="fitCenter"
+                android:src="@drawable/clear_white_128"
+                android:textSize="30sp" />
 
             <com.tang.voicecalc.MyImageButton
                 android:id="@+id/button_back"
-                style="@style/button_style1_red"
-                android:layout_width="50dip"
-                android:layout_weight="1">
-
-            </com.tang.voicecalc.MyImageButton>
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_margin="4dip"
+                android:layout_weight="1"
+                android:background="@drawable/style1_red"
+                android:scaleType="fitCenter"
+                android:src="@drawable/backspace_128" />
         </LinearLayout>
 
         <TableRow
             android:id="@+id/row0"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="40dip"
             android:layout_weight="1" >
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button1"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/one"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button2"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/two"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button3"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/three"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button_plus"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkblue"
                 android:text="@string/jia"
-                android:textSize="25sp" >
-            </Button>
+                android:textColor="@color/white"
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
         </TableRow>
 
         <TableRow
@@ -107,41 +121,53 @@
             android:layout_height="fill_parent"
             android:layout_weight="1" >
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button4"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/fore"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button5"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/five"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button6"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/six"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button_substract"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkblue"
                 android:text="@string/jian"
-                android:textSize="25sp" >
-            </Button>
+                android:textColor="@color/white"
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
         </TableRow>
 
         <TableRow
@@ -150,41 +176,53 @@
             android:layout_height="fill_parent"
             android:layout_weight="1" >
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button7"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/seven"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button8"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/eight"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button9"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/nine"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button_multiply"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkblue"
                 android:text="@string/cheng"
-                android:textSize="25sp" >
-            </Button>
+                android:textColor="@color/white"
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
         </TableRow>
 
         <TableRow
@@ -193,39 +231,51 @@
             android:layout_height="fill_parent"
             android:layout_weight="1" >
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button_dot"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/dihao"
-                android:textSize="25sp" />
+                android:textSize="30sp" />
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button0"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/zero"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button_minus"
                 android:layout_width="50dp"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkgray"
+                android:textColor="@color/white"
                 android:text="@string/zhengfu"
-                android:textSize="25sp" />
+                android:textSize="30sp" />
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button_divide"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkblue"
                 android:text="@string/chu"
-                android:textSize="25sp" >
-            </Button>
+                android:textColor="@color/white"
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
         </TableRow>
 
         <LinearLayout
@@ -235,32 +285,41 @@
             android:layout_weight="1"
             android:orientation="horizontal" >
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button_bracket_left"
                 android:layout_width="50dp"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkblue"
                 android:text="@string/bracket_left"
-                android:textSize="25sp" >
-            </Button>
+                android:textColor="@color/white"
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button_bracket_right"
                 android:layout_width="50dp"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkblue"
                 android:text="@string/bracket_right"
-                android:textSize="25sp" >
-            </Button>
+                android:textColor="@color/white"
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
 
-            <Button
+            <com.tang.voicecalc.MyButton
                 android:id="@+id/button_equal"
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
+                android:layout_margin="2dip"
                 android:layout_weight="1"
+                android:background="@drawable/style1_darkblue"
                 android:text="@string/dengyu"
-                android:textSize="25sp" />
-
+                android:textColor="@color/white"
+                android:textSize="30sp" >
+            </com.tang.voicecalc.MyButton>
         </LinearLayout>
     </TableLayout>
 

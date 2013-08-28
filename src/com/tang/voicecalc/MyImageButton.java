@@ -4,21 +4,36 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ImageButton;
 
 public class MyImageButton extends ImageButton {
+	String TAG = "MyImageButtion";
 	static final int CLICK_DURATION = 600;
 	static final int CLICK_INTERVAL = 10;
 	int CLICK_COLOR;
 	long mAnimStart = -1L;
 	Paint mPaint;
+	  public boolean isSoundsLoaded;
 
+	public final float[] BT_SELECTED=new float[]
+			{ 2, 0, 0, 0, 2,
+			0, 2, 0, 0, 2,
+			0, 0, 2, 0, 2,
+			0, 0, 0, 1, 0 };
+			public final float[] BT_NOT_SELECTED=new float[]
+			{ 1, 0, 0, 0, 0,
+			0, 1, 0, 0, 0,
+			0, 0, 1, 0, 0,
+			0, 0, 0, 1, 0 };
+			
 	public MyImageButton(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
@@ -56,30 +71,36 @@ public class MyImageButton extends ImageButton {
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		super.onDraw(canvas);
-
-		int i = 0;
-		if (this.mAnimStart != -1L) {
-			i = (int) (System.currentTimeMillis() - this.mAnimStart);
-			if (i >= 600)
-				this.mAnimStart = -1L;
-		}
-		while (!isPressed()) {
-			drawRect(i, canvas);
-			postInvalidateDelayed(10L);
-			return;
-		}
-		drawRect(0, canvas);
+//
+//		int i = 0;
+//		// Log.i(TAG, String.format("mAnimStart : %d", this.mAnimStart));
+//		if (this.mAnimStart != -1L) {
+//			i = (int) (System.currentTimeMillis() - this.mAnimStart);
+//			Log.i(TAG, String.format("time gap: %d", i));
+//			if (i >= 600)
+//				this.mAnimStart = -1L;
+//
+//		}
+//		if (isPressed()) {
+//			Log.i(TAG, String.format("pressed: %d", i));
+//			drawRect(i, canvas);
+//			postInvalidateDelayed(1000L);
+//			return;
+//		}else{
+//			//drawRect(i, canvas);
+//		}
 	}
 
 	private void drawRect(int paramInt, Canvas canvas) {
 		// TODO Auto-generated method stub
 		int i = 255 - paramInt * 255 / 600;
 		int j = this.CLICK_COLOR | i << 24;
+		BitmapDrawable bitmap = (BitmapDrawable) getResources().getDrawable(
+				R.drawable.style1_darkorange);
 		this.mPaint.setColor(j);
-		canvas.drawBitmap(Bitmap.createScaledBitmap(
-				((BitmapDrawable) getResources().getDrawable(R.drawable.style1_darkorange))
-						.getBitmap(), getWidth(), getHeight(), true), null,
-				new RectF(0.0F, 0.0F, getWidth(), getHeight()), this.mPaint);
+		canvas.drawBitmap(Bitmap.createScaledBitmap(bitmap.getBitmap(),
+				getWidth(), getHeight(), true), null, new RectF(0.0F, 0.0F,
+				getWidth(), getHeight()), this.mPaint);
 
 	}
 
@@ -94,15 +115,20 @@ public class MyImageButton extends ImageButton {
 		// return super.onTouchEvent(event);
 		boolean bool = super.onTouchEvent(event);
 		switch (event.getAction()) {
-		case 2:
+		case MotionEvent.ACTION_UP:
+			this.getBackground().setColorFilter(new ColorMatrixColorFilter(BT_NOT_SELECTED));
+//			this.setBackgroundDrawable(this.getBackground());
+//			animateClick();
+			break;
+		case MotionEvent.ACTION_DOWN:
+			this.getBackground().setColorFilter(new ColorMatrixColorFilter(BT_SELECTED));
+//			this.setBackgroundDrawable(this.getBackground());
+			vibrate();
+			break;
+		case MotionEvent.ACTION_MOVE:
+			break;
 		default:
 			return bool;
-		case 1:
-			animateClick();
-			return bool;
-		case 0:
-			vibrate();
-		case 3:
 		}
 		invalidate();
 		return bool;
