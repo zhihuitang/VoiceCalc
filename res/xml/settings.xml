@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ListPreference
+        android:dialogTitle="Sound Setup"
+        android:entries="@array/sound_setup_array"
+        android:entryValues="@array/sound_setup_value_array"
+        android:key="sound_setup_list_preference"
+        android:negativeButtonText="Cancel"
+        android:positiveButtonText="OK"
+        android:summary="summary"
+        android:title="Sound Settings" />
+
+    <CheckBoxPreference android:title="Vibrate" android:key="vibrate" android:summary="summary" android:summaryOff="OFF" android:summaryOn="ON"/>
+
+</PreferenceScreen>

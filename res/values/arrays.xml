@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sound_setup_array">
+        <item>None</item>
+        <item>English</item>
+        <item>Svenska</item>
+        <item>汉语</item>
+        </string-array>
+    <string-array name="sound_setup_value_array">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        </string-array>
+</resources>
