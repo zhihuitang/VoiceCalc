@@ -11,6 +11,8 @@ public final class R {
     public static final class array {
         public static final int sound_setup_array=0x7f060000;
         public static final int sound_setup_value_array=0x7f060001;
+        public static final int viberate_array=0x7f060002;
+        public static final int viberate_value_array=0x7f060003;
     }
     public static final class attr {
     }
@@ -476,18 +478,23 @@ public final class R {
         public static final int activity_vertical_margin=0x7f080001;
     }
     public static final class drawable {
-        public static final int backspace_128=0x7f020000;
-        public static final int clear_white_128=0x7f020001;
-        public static final int edit_text_bg=0x7f020002;
-        public static final int ic_launcher=0x7f020003;
-        public static final int style1_darkblue=0x7f020004;
-        public static final int style1_darkgray=0x7f020005;
-        public static final int style1_darkorange=0x7f020006;
-        public static final int style1_red=0x7f020007;
-        public static final int style1_white=0x7f020008;
+        public static final int ac2=0x7f020000;
+        public static final int app_bare_background=0x7f020001;
+        public static final int backspace_128=0x7f020002;
+        public static final int calc=0x7f020003;
+        public static final int calculator_display=0x7f020004;
+        public static final int calculator_display_small=0x7f020005;
+        public static final int clear_white_128=0x7f020006;
+        public static final int edit_text_bg=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int style1_darkblue=0x7f020009;
+        public static final int style1_darkgray=0x7f02000a;
+        public static final int style1_darkorange=0x7f02000b;
+        public static final int style1_red=0x7f02000c;
+        public static final int style1_white=0x7f02000d;
     }
     public static final class id {
-        public static final int action_settings=0x7f0d001d;
+        public static final int action_settings=0x7f0d001c;
         public static final int button0=0x7f0d0017;
         public static final int button1=0x7f0d0007;
         public static final int button2=0x7f0d0008;
@@ -499,13 +506,12 @@ public final class R {
         public static final int button8=0x7f0d0012;
         public static final int button9=0x7f0d0013;
         public static final int button_back=0x7f0d0005;
-        public static final int button_bracket_left=0x7f0d001a;
-        public static final int button_bracket_right=0x7f0d001b;
+        public static final int button_bracket_left=0x7f0d0019;
+        public static final int button_bracket_right=0x7f0d001a;
         public static final int button_c=0x7f0d0004;
-        public static final int button_divide=0x7f0d0019;
+        public static final int button_divide=0x7f0d0018;
         public static final int button_dot=0x7f0d0016;
-        public static final int button_equal=0x7f0d001c;
-        public static final int button_minus=0x7f0d0018;
+        public static final int button_equal=0x7f0d001b;
         public static final int button_multiply=0x7f0d0014;
         public static final int button_plus=0x7f0d000a;
         public static final int button_substract=0x7f0d000f;
@@ -529,28 +535,46 @@ public final class R {
         public static final int main=0x7f0c0000;
     }
     public static final class raw {
-        public static final int clear=0x7f050000;
-        public static final int eight=0x7f050001;
-        public static final int eight_cn=0x7f050002;
-        public static final int five=0x7f050003;
-        public static final int five_cn=0x7f050004;
-        public static final int four=0x7f050005;
-        public static final int four_cn=0x7f050006;
-        public static final int nine=0x7f050007;
-        public static final int nine_cn=0x7f050008;
-        public static final int one=0x7f050009;
-        public static final int one_cn=0x7f05000a;
-        public static final int seven=0x7f05000b;
-        public static final int seven_cn=0x7f05000c;
-        public static final int six=0x7f05000d;
-        public static final int six_cn=0x7f05000e;
-        public static final int tap=0x7f05000f;
-        public static final int ten=0x7f050010;
-        public static final int tenthousand=0x7f050011;
-        public static final int three=0x7f050012;
-        public static final int three_cn=0x7f050013;
-        public static final int two=0x7f050014;
-        public static final int two_cn=0x7f050015;
+        public static final int bracket=0x7f050000;
+        public static final int bracket_cn=0x7f050001;
+        public static final int clear=0x7f050002;
+        public static final int divide=0x7f050003;
+        public static final int divide_cn=0x7f050004;
+        public static final int e=0x7f050005;
+        public static final int e_cn=0x7f050006;
+        public static final int eight=0x7f050007;
+        public static final int eight_cn=0x7f050008;
+        public static final int equal=0x7f050009;
+        public static final int equal_cn=0x7f05000a;
+        public static final int five=0x7f05000b;
+        public static final int five_cn=0x7f05000c;
+        public static final int four=0x7f05000d;
+        public static final int four_cn=0x7f05000e;
+        public static final int minus=0x7f05000f;
+        public static final int minus_cn=0x7f050010;
+        public static final int multiply=0x7f050011;
+        public static final int multiply_cn=0x7f050012;
+        public static final int nine=0x7f050013;
+        public static final int nine_cn=0x7f050014;
+        public static final int one=0x7f050015;
+        public static final int one_cn=0x7f050016;
+        public static final int plus=0x7f050017;
+        public static final int plus_cn=0x7f050018;
+        public static final int point=0x7f050019;
+        public static final int point_cn=0x7f05001a;
+        public static final int seven=0x7f05001b;
+        public static final int seven_cn=0x7f05001c;
+        public static final int six=0x7f05001d;
+        public static final int six_cn=0x7f05001e;
+        public static final int tap=0x7f05001f;
+        public static final int ten=0x7f050020;
+        public static final int tenthousand=0x7f050021;
+        public static final int three=0x7f050022;
+        public static final int three_cn=0x7f050023;
+        public static final int two=0x7f050024;
+        public static final int two_cn=0x7f050025;
+        public static final int zero=0x7f050026;
+        public static final int zero_cn=0x7f050027;
     }
     public static final class string {
         public static final int action_settings=0x7f0a0002;

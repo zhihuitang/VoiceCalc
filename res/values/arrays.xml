@@ -12,4 +12,14 @@
         <item>1</item>
         <item>2</item>
         </string-array>
+    <string-array name="viberate_array">
+        <item>No Viberate</item>
+        <item>Viberate On Touch</item>
+        <item>Viberate On Error</item>
+        </string-array>
+    <string-array name="viberate_value_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        </string-array>
 </resources>

@@ -10,7 +10,9 @@ import android.preference.PreferenceManager;
 public class SettingsPreferenceFragment extends PreferenceFragment implements OnSharedPreferenceChangeListener {
 
 	private ListPreference	soundSetupListPreference;
+	private ListPreference	viberateSetupListPreference;
 	private String 			soundSetupString	= "sound_setup_list_preference";
+	private String 			viberateSetupString	= "viberate_setup_list_preference";
 	
 	public SettingsPreferenceFragment() {
 		// TODO Auto-generated constructor stub
@@ -27,6 +29,7 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements On
 		addPreferencesFromResource(R.xml.settings);
 		
 		soundSetupListPreference	= (ListPreference)findPreference(soundSetupString);
+		viberateSetupListPreference	= (ListPreference)findPreference(viberateSetupString);
 
 		sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		sp.registerOnSharedPreferenceChangeListener(this);
@@ -43,15 +46,20 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements On
 		// TODO Auto-generated method stub
 		super.onStart();
 		soundSetupListPreference.setSummary(soundSetupListPreference.getEntry());
+		viberateSetupListPreference.setSummary(viberateSetupListPreference.getEntry());
 	}
 
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
 		// TODO Auto-generated method stub
+		CharSequence	entry;
 		if(key.equals(soundSetupString)){
-			CharSequence	entry	= soundSetupListPreference.getEntry();
+			entry	= soundSetupListPreference.getEntry();
 			soundSetupListPreference.setSummary(entry);
+		}else if( key.equals(viberateSetupString)){
+			entry	= viberateSetupListPreference.getEntry();
+			viberateSetupListPreference.setSummary(entry);
 		}
 	}
 

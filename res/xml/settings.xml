@@ -9,8 +9,7 @@
         android:negativeButtonText="Cancel"
         android:positiveButtonText="OK"
         android:summary="summary"
-        android:title="Sound Settings" />
-
-    <CheckBoxPreference android:title="Vibrate" android:key="vibrate" android:summary="summary" android:summaryOff="OFF" android:summaryOn="ON"/>
+        android:title="Sound Setup" />
+    <ListPreference android:key="viberate_setup_list_preference" android:entries="@array/viberate_array" android:entryValues="@array/viberate_value_array" android:dialogTitle="Viberate Setup" android:title="Viberate Setup" android:summary="summary"/>
 
 </PreferenceScreen>

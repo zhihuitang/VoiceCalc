@@ -45,7 +45,7 @@ public class EvaluateExpression {
 		operatorStack.add("#");
 		for (int i = 0; i < expressionList.size(); i++) {
 			// 生成逆波兰表达式
-			Log.i(TAG, expressionList.get(i).toString());
+//			Log.i(TAG, expressionList.get(i).toString());
 			element = expressionList.get(i);
 			if (Element.GetElementType(element) == Element.NUMBER) {
 				// 如果是操作数，则入postfixStack栈
@@ -88,7 +88,7 @@ public class EvaluateExpression {
 			// 得到逆波兰表达式
 			String ss = postfixStack_tmp.pop();
 			postfixStack.push(ss);
-			Log.i(TAG, ss);
+//			Log.i(TAG, ss);
 		}
 		}catch(Exception e){
 //			e.printStackTrace();

@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_gravity="center_vertical"
-    android:background="#ff808080"
+    android:background="@drawable/app_bare_background"
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
@@ -17,12 +17,12 @@
         android:layout_marginLeft="6dip"
         android:layout_marginRight="6dip"
         android:layout_marginTop="4dip"
-        android:background="@drawable/edit_text_bg"
+        android:padding="2dip"
+        android:background="@drawable/calculator_display_small"
         android:focusable="false"
         android:gravity="center_vertical|right"
-        android:maxLines="@integer/maxline"
         android:textColor="#000000"
-        android:textSize="30sp" >
+        android:textSize="25sp" >
     </EditText>
 
     <TableLayout
@@ -247,23 +247,14 @@
                 android:layout_width="40dip"
                 android:layout_height="fill_parent"
                 android:layout_margin="2dip"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:background="@drawable/style1_darkgray"
                 android:textColor="@color/white"
                 android:text="@string/zero"
                 android:textSize="30sp" >
             </com.tang.voicecalc.MyButton>
 
-            <com.tang.voicecalc.MyButton
-                android:id="@+id/button_minus"
-                android:layout_width="50dp"
-                android:layout_height="fill_parent"
-                android:layout_margin="2dip"
-                android:layout_weight="1"
-                android:background="@drawable/style1_darkgray"
-                android:textColor="@color/white"
-                android:text="@string/zhengfu"
-                android:textSize="30sp" />
+            
 
             <com.tang.voicecalc.MyButton
                 android:id="@+id/button_divide"

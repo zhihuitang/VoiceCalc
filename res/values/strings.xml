@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, deom03!</string>
-    <string name="app_name">Voice calculator</string>
+    <string name="hello">Hello World, Voice Calculator!</string>
+    <string name="app_name">Voice Calculator</string>
     <string name="action_settings">setting</string>
     <string name="one">1</string>
     <string name="two">2</string>
