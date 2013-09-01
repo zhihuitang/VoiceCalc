@@ -9,7 +9,15 @@
         android:negativeButtonText="Cancel"
         android:positiveButtonText="OK"
         android:summary="summary"
+        android:defaultValue="1"
         android:title="Sound Setup" />
-    <ListPreference android:key="viberate_setup_list_preference" android:entries="@array/viberate_array" android:entryValues="@array/viberate_value_array" android:dialogTitle="Viberate Setup" android:title="Viberate Setup" android:summary="summary"/>
+    <ListPreference
+        android:dialogTitle="Viberate Setup"
+        android:entries="@array/viberate_array"
+        android:entryValues="@array/viberate_value_array"
+        android:key="viberate_setup_list_preference"
+        android:summary="summary"
+        android:defaultValue="2"
+        android:title="Viberate Setup" />
 
 </PreferenceScreen>

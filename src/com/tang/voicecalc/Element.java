@@ -19,7 +19,7 @@ public class Element {
 		// TODO Auto-generated method stub
 		if (IsNumber(element)) {
 			return NUMBER;
-		} else if (IsOperator(element)) {
+		} else if (IsOperator(element) >= 0) {
 			return OPERATOR;
 		} else if (IsBracketLeft(element)) {
 			return BRACKET_LEFT;
@@ -32,6 +32,43 @@ public class Element {
 		} else {
 			return UNKNOWN;
 		}
+	}
+
+	public static boolean IsPrior(String s1, String s2) {
+		/*
+		 *  column, s1
+		 *  row,    s2
+		 *  
+		 * 		#   +   -   *   /  
+		 *  #   1   0   0   0   0
+		 *  +   1   1   1   0   0
+		 *  -   1   1   1   0   0 
+		 *  *   1   1   1   1   1
+		 *  /   1   1   1   1   1
+		 */
+
+		if (GetElementType(s1) == OPERATOR && GetElementType(s2) == OPERATOR) {
+			int[][] precedeTable = { //  +   -   *   /
+			{ 1, 0, 0, 0, 0 }, // #
+					{ 1, 1, 1, 0, 0 }, // +
+					{ 1, 1, 1, 0, 0 }, //  -
+					{ 1, 1, 1, 1, 1 }, // * 
+					{ 1, 1, 1, 1, 1 } // /
+			};
+			int n1 = GetOperatorIndex(s1);
+			int n2 = GetOperatorIndex(s2);
+
+			return (precedeTable[n1][n2] == 1 ? true : false);
+		} else {
+			Log.e(TAG, String.format("[%s][%s] not operator", s1, s2));
+			return false;
+		}
+	}
+
+	private static int GetOperatorIndex(String s) {
+		// TODO Auto-generated method stub
+		String operator = "#+-*/";
+		return operator.indexOf(s);
 	}
 
 	private static boolean IsDot(String s) {
@@ -71,13 +108,13 @@ public class Element {
 			Matcher matcherFloat = patternFloat.matcher(s);
 			Matcher matcherInt = patternInt.matcher(s);
 			if (matcherFloat.find()) {
-//				Log.i(TAG, String.format("%s is a float", s));
+				//				Log.i(TAG, String.format("%s is a float", s));
 				ret = true;
 			} else if (matcherInt.find()) {
-//				Log.i(TAG, String.format("%s is a int", s));
+				//				Log.i(TAG, String.format("%s is a int", s));
 				ret = true;
 			} else {
-//				Log.i(TAG, String.format("%s not a number", s));
+				//				Log.i(TAG, String.format("%s not a number", s));
 				ret = false;
 			}
 		} catch (NumberFormatException e) {
@@ -86,24 +123,33 @@ public class Element {
 		return ret;
 	}
 
-	private static boolean IsOperator(String s) {
+	// 返回数参见IsPrior的表
+	private static int IsOperator(String s) {
 		// TODO Auto-generated method stub
-		boolean ret = false;
+		int ret = -1;
 		if (s.length() != 1) {
 			// 如果长度不等于1，则肯定不是操作符
-			ret = false;
+			ret = -1;
 		} else {
 			char c = s.charAt(0);
 			switch (c) {
-			case '+':
-			case '-':
-			case '*':
-			case '/':
 			case '#':
-				ret = true;
+				ret = 0;
+				break;
+			case '+':
+				ret = 1;
+				break;
+			case '-':
+				ret = 2;
+				break;
+			case '*':
+				ret = 3;
+				break;
+			case '/':
+				ret = 4;
 				break;
 			default:
-				ret = false;
+				ret = -1;
 				break;
 			}
 		}
@@ -149,4 +195,5 @@ public class Element {
 		}
 		return ret;
 	}
+
 }

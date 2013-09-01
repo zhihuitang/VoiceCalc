@@ -35,6 +35,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	SoundPool soundPool;
 	int soundTap;
 	SoundThread soundThread;
+	int soundType; // -1-None, 0-English, 1-Swedish, 2-Chinese
 
 	Map<String, int[]> soundMap = new HashMap<String, int[]>();
 
@@ -127,12 +128,9 @@ public class MainActivity extends Activity implements OnClickListener {
 
 				soundTap = soundPool.load(MainActivity.this, R.raw.tap, 1); // English
 				int[] soundSetC = new int[3];
-				soundSetC[0] = soundPool
-						.load(MainActivity.this, R.raw.clear, 1); // English
-				soundSetC[1] = soundPool
-						.load(MainActivity.this, R.raw.clear, 1); // Swedish
-				soundSetC[2] = soundPool
-						.load(MainActivity.this, R.raw.clear, 1); // Chinese
+				soundSetC[0] = soundPool.load(MainActivity.this, R.raw.clear, 1); // English
+				soundSetC[1] = soundPool.load(MainActivity.this, R.raw.clear, 1); // Swedish
+				soundSetC[2] = soundPool.load(MainActivity.this, R.raw.clear, 1); // Chinese
 				soundMap.put("C", soundSetC);
 
 				int[] soundSetB = new int[3]; // Backspace
@@ -143,148 +141,111 @@ public class MainActivity extends Activity implements OnClickListener {
 
 				int[] soundSet0 = new int[3];
 				soundSet0[0] = soundPool.load(MainActivity.this, R.raw.zero, 1); // English
-				soundSet0[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet0[2] = soundPool.load(MainActivity.this, R.raw.zero_cn,
-						1); // Chinese
+				soundSet0[1] = soundPool.load(MainActivity.this, R.raw.zero_sv, 1); // Swedish
+				soundSet0[2] = soundPool.load(MainActivity.this, R.raw.zero_cn, 1); // Chinese
 				soundMap.put("0", soundSet0);
 
 				int[] soundSet1 = new int[3];
 				soundSet1[0] = soundPool.load(MainActivity.this, R.raw.one, 1); // English
-				soundSet1[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet1[2] = soundPool.load(MainActivity.this, R.raw.one_cn,
-						1); // Chinese
+				soundSet1[1] = soundPool.load(MainActivity.this, R.raw.one_sv, 1); // Swedish
+				soundSet1[2] = soundPool.load(MainActivity.this, R.raw.one_cn, 1); // Chinese
 				soundMap.put("1", soundSet1);
 
 				int[] soundSet2 = new int[3];
 				soundSet2[0] = soundPool.load(MainActivity.this, R.raw.two, 1); // English
-				soundSet2[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet2[2] = soundPool.load(MainActivity.this, R.raw.two_cn,
-						1); // Chinese
+				soundSet2[1] = soundPool.load(MainActivity.this, R.raw.two_sv, 1); // Swedish
+				soundSet2[2] = soundPool.load(MainActivity.this, R.raw.two_cn, 1); // Chinese
 				soundMap.put("2", soundSet2);
 
 				int[] soundSet3 = new int[3];
-				soundSet3[0] = soundPool
-						.load(MainActivity.this, R.raw.three, 1); // English
-				soundSet3[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet3[2] = soundPool.load(MainActivity.this,
-						R.raw.three_cn, 1); // Chinese
+				soundSet3[0] = soundPool.load(MainActivity.this, R.raw.three, 1); // English
+				soundSet3[1] = soundPool.load(MainActivity.this, R.raw.three_sv, 1); // Swedish
+				soundSet3[2] = soundPool.load(MainActivity.this, R.raw.three_cn, 1); // Chinese
 				soundMap.put("3", soundSet3);
 
 				int[] soundSet4 = new int[3];
 				soundSet4[0] = soundPool.load(MainActivity.this, R.raw.four, 1); // English
-				soundSet4[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet4[2] = soundPool.load(MainActivity.this, R.raw.four_cn,
-						1); // Chinese
+				soundSet4[1] = soundPool.load(MainActivity.this, R.raw.four_sv, 1); // Swedish
+				soundSet4[2] = soundPool.load(MainActivity.this, R.raw.four_cn, 1); // Chinese
 				soundMap.put("4", soundSet4);
 
 				int[] soundSet5 = new int[3];
 				soundSet5[0] = soundPool.load(MainActivity.this, R.raw.five, 1); // English
-				soundSet5[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet5[2] = soundPool.load(MainActivity.this, R.raw.five_cn,
-						1); // Chinese
+				soundSet5[1] = soundPool.load(MainActivity.this, R.raw.five_sv, 1); // Swedish
+				soundSet5[2] = soundPool.load(MainActivity.this, R.raw.five_cn, 1); // Chinese
 				soundMap.put("5", soundSet5);
 
 				int[] soundSet6 = new int[3];
 				soundSet6[0] = soundPool.load(MainActivity.this, R.raw.six, 1); // English
-				soundSet6[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet6[2] = soundPool.load(MainActivity.this, R.raw.six_cn,
-						1); // Chinese
+				soundSet6[1] = soundPool.load(MainActivity.this, R.raw.six_sv, 1); // Swedish
+				soundSet6[2] = soundPool.load(MainActivity.this, R.raw.six_cn, 1); // Chinese
 				soundMap.put("6", soundSet6);
 
 				int[] soundSet7 = new int[3];
-				soundSet7[0] = soundPool
-						.load(MainActivity.this, R.raw.seven, 1); // English
-				soundSet7[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet7[2] = soundPool.load(MainActivity.this,
-						R.raw.seven_cn, 1); // Chinese
+				soundSet7[0] = soundPool.load(MainActivity.this, R.raw.seven, 1); // English
+				soundSet7[1] = soundPool.load(MainActivity.this, R.raw.seven_sv, 1); // Swedish
+				soundSet7[2] = soundPool.load(MainActivity.this, R.raw.seven_cn, 1); // Chinese
 				soundMap.put("7", soundSet7);
 
 				int[] soundSet8 = new int[3];
-				soundSet8[0] = soundPool
-						.load(MainActivity.this, R.raw.eight, 1); // English
-				soundSet8[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet8[2] = soundPool.load(MainActivity.this,
-						R.raw.eight_cn, 1); // Chinese
+				soundSet8[0] = soundPool.load(MainActivity.this, R.raw.eight, 1); // English
+				soundSet8[1] = soundPool.load(MainActivity.this, R.raw.eight_sv, 1); // Swedish
+				soundSet8[2] = soundPool.load(MainActivity.this, R.raw.eight_cn, 1); // Chinese
 				soundMap.put("8", soundSet8);
 
 				int[] soundSet9 = new int[3];
 				soundSet9[0] = soundPool.load(MainActivity.this, R.raw.nine, 1); // English
-				soundSet9[1] = soundPool.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundSet9[2] = soundPool.load(MainActivity.this, R.raw.nine_cn,
-						1); // Chinese
+				soundSet9[1] = soundPool.load(MainActivity.this, R.raw.nine_sv, 1); // Swedish
+				soundSet9[2] = soundPool.load(MainActivity.this, R.raw.nine_cn, 1); // Chinese
 				soundMap.put("9", soundSet9);
 
 				int[] soundSetPlus = new int[3];
-				soundSetPlus[0] = soundPool.load(MainActivity.this, R.raw.plus,
-						1); // English
-				soundSetPlus[1] = soundPool.load(MainActivity.this, R.raw.tap,
-						1); // Swedish
-				soundSetPlus[2] = soundPool.load(MainActivity.this,
-						R.raw.plus_cn, 1); // Chinese
+				soundSetPlus[0] = soundPool.load(MainActivity.this, R.raw.plus, 1); // English
+				soundSetPlus[1] = soundPool.load(MainActivity.this, R.raw.plus_sv, 1); // Swedish
+				soundSetPlus[2] = soundPool.load(MainActivity.this, R.raw.plus_cn, 1); // Chinese
 				soundMap.put("+", soundSetPlus);
 
 				int[] soundSetMinus = new int[3];
-				soundSetMinus[0] = soundPool.load(MainActivity.this,
-						R.raw.minus, 1); // English
-				soundSetMinus[1] = soundPool.load(MainActivity.this, R.raw.tap,
-						1); // Swedish
-				soundSetMinus[2] = soundPool.load(MainActivity.this,
-						R.raw.minus_cn, 1); // Chinese
+				soundSetMinus[0] = soundPool.load(MainActivity.this, R.raw.minus, 1); // English
+				soundSetMinus[1] = soundPool.load(MainActivity.this, R.raw.minus_sv, 1); // Swedish
+				soundSetMinus[2] = soundPool.load(MainActivity.this, R.raw.minus_cn, 1); // Chinese
 				soundMap.put("-", soundSetMinus);
 
 				int[] soundSetMultiply = new int[3];
-				soundSetMultiply[0] = soundPool.load(MainActivity.this,
-						R.raw.multiply, 1); // English
-				soundSetMultiply[1] = soundPool.load(MainActivity.this,
-						R.raw.tap, 1); // Swedish
-				soundSetMultiply[2] = soundPool.load(MainActivity.this,
-						R.raw.multiply_cn, 1); // Chinese
+				soundSetMultiply[0] = soundPool.load(MainActivity.this, R.raw.multiply, 1); // English
+				soundSetMultiply[1] = soundPool.load(MainActivity.this, R.raw.multiply_sv, 1); // Swedish
+				soundSetMultiply[2] = soundPool.load(MainActivity.this, R.raw.multiply_cn, 1); // Chinese
 				soundMap.put("*", soundSetMultiply);
 
 				int[] soundSetDivide = new int[3];
-				soundSetDivide[0] = soundPool.load(MainActivity.this,
-						R.raw.divide, 1); // English
-				soundSetDivide[1] = soundPool.load(MainActivity.this,
-						R.raw.tap, 1); // Swedish
-				soundSetDivide[2] = soundPool.load(MainActivity.this,
-						R.raw.divide_cn, 1); // Chinese
+				soundSetDivide[0] = soundPool.load(MainActivity.this, R.raw.divide, 1); // English
+				soundSetDivide[1] = soundPool.load(MainActivity.this, R.raw.divide_sv, 1); // Swedish
+				soundSetDivide[2] = soundPool.load(MainActivity.this, R.raw.divide_cn, 1); // Chinese
 				soundMap.put("/", soundSetDivide);
 
 				int[] soundSetEqual = new int[3];
-				soundSetEqual[0] = soundPool.load(MainActivity.this,
-						R.raw.equal, 1); // English
-				soundSetEqual[1] = soundPool.load(MainActivity.this, R.raw.tap,
-						1); // Swedish
-				soundSetEqual[2] = soundPool.load(MainActivity.this,
-						R.raw.equal_cn, 1); // Chinese
+				soundSetEqual[0] = soundPool.load(MainActivity.this, R.raw.equal, 1); // English
+				soundSetEqual[1] = soundPool.load(MainActivity.this, R.raw.equal_sv, 1); // Swedish
+				soundSetEqual[2] = soundPool.load(MainActivity.this, R.raw.equal_cn, 1); // Chinese
 				soundMap.put("=", soundSetEqual);
 
 				int[] soundSetPoint = new int[3];
-				soundSetPoint[0] = soundPool.load(MainActivity.this,
-						R.raw.point, 1); // English
-				soundSetPoint[1] = soundPool.load(MainActivity.this, R.raw.tap,
-						1); // Swedish
-				soundSetPoint[2] = soundPool.load(MainActivity.this,
-						R.raw.point_cn, 1); // Chinese
+				soundSetPoint[0] = soundPool.load(MainActivity.this, R.raw.point, 1); // English
+				soundSetPoint[1] = soundPool.load(MainActivity.this, R.raw.point_sv, 1); // Swedish
+				soundSetPoint[2] = soundPool.load(MainActivity.this, R.raw.point_cn, 1); // Chinese
 				soundMap.put(".", soundSetPoint);
 
 				int[] soundBacket = new int[3];
-				soundBacket[0] = soundPool.load(MainActivity.this,
-						R.raw.bracket, 1); // English
-				soundBacket[1] = soundPool
-						.load(MainActivity.this, R.raw.tap, 1); // Swedish
-				soundBacket[2] = soundPool.load(MainActivity.this,
-						R.raw.bracket_cn, 1); // Chinese
+				soundBacket[0] = soundPool.load(MainActivity.this, R.raw.bracket, 1); // English
+				soundBacket[1] = soundPool.load(MainActivity.this, R.raw.bracket_sv, 1); // Swedish
+				soundBacket[2] = soundPool.load(MainActivity.this, R.raw.bracket_cn, 1); // Chinese
 				soundMap.put("(", soundBacket);
 				soundMap.put(")", soundBacket);
 
 				int[] soundE = new int[3];
-				soundE[0] = soundPool.load(MainActivity.this,
-						R.raw.e, 1); // English
-				soundE[1] = soundPool
-						.load(MainActivity.this, R.raw.e, 1); // Swedish
-				soundE[2] = soundPool.load(MainActivity.this,
-						R.raw.e_cn, 1); // Chinese
+				soundE[0] = soundPool.load(MainActivity.this, R.raw.e, 1); // English
+				soundE[1] = soundPool.load(MainActivity.this, R.raw.e, 1); // Swedish
+				soundE[2] = soundPool.load(MainActivity.this, R.raw.e_cn, 1); // Chinese
 				soundMap.put("E", soundE);
 
 				Log.i(TAG, "Audio loaded at " + new Date());
@@ -408,43 +369,35 @@ public class MainActivity extends Activity implements OnClickListener {
 			} else if (s.equals("0") && ch.equals("0")) {
 				// 00- -> 0
 				s = "0";
-			} else if (s.equals("0")
-					&& Element.GetElementType(ch) == Element.NUMBER) {
+			} else if (s.equals("0") && Element.GetElementType(ch) == Element.NUMBER) {
 				// 09 -> 9
 				s = ch;
-			} else if (s.equals("0")
-					&& Element.GetElementType(ch) == Element.DOT) {
+			} else if (s.equals("0") && Element.GetElementType(ch) == Element.DOT) {
 				s = s + ch;
 			} else if (s.equals("0") && ch.equals("(")) {
 				// 0( -> (
 				s = ch;
-			} else if (characterThis == Element.DOT
-					&& characterLast == Element.DOT) {
+			} else if (characterThis == Element.DOT && characterLast == Element.DOT) {
 				// ..
 				ViberateOnError();
 				return;
-			} else if (characterThis == Element.OPERATOR
-					&& characterLast == Element.OPERATOR) {
+			} else if (characterThis == Element.OPERATOR && characterLast == Element.OPERATOR) {
 				// ++
 				ViberateOnError();
 				return;
-			} else if (characterThis == Element.BRACKET_LEFT
-					&& characterLast == Element.NUMBER) {
+			} else if (characterThis == Element.BRACKET_LEFT && characterLast == Element.NUMBER) {
 				// 1-9(
 				ViberateOnError();
 				return;
-			} else if (characterThis == Element.BRACKET_RIGHT
-					&& characterLast == Element.OPERATOR) {
+			} else if (characterThis == Element.BRACKET_RIGHT && characterLast == Element.OPERATOR) {
 				// +)
 				ViberateOnError();
 				return;
-			} else if (characterThis == Element.BRACKET_LEFT
-					&& characterLast == Element.BRACKET_RIGHT) {
+			} else if (characterThis == Element.BRACKET_LEFT && characterLast == Element.BRACKET_RIGHT) {
 				// )(
 				ViberateOnError();
 				return;
-			} else if (characterThis == Element.BRACKET_RIGHT
-					&& characterLast == Element.BRACKET_LEFT) {
+			} else if (characterThis == Element.BRACKET_RIGHT && characterLast == Element.BRACKET_LEFT) {
 				// ()
 				ViberateOnError();
 				return;
@@ -467,19 +420,21 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	}
 
-	private void PlaySoundByChar(String ch) {
+	private int PlaySoundByChar(String ch) {
 		// TODO Auto-generated method stub
 		int ret = -1;
 		int sound;
-		int soundType; // None, English, Swedish, Chinese
-		String soundSetup = PreferenceManager.getDefaultSharedPreferences(this)
-				.getString("sound_setup_list_preference", "0");
+		
+		// default is Svenska-1
+		String soundSetup = PreferenceManager.getDefaultSharedPreferences(this).getString(
+				"sound_setup_list_preference", "1");
+		
 
 		// Log.i(TAG, String.format("soundSetup: %s", soundSetup));
 
 		soundType = Integer.parseInt(soundSetup);
-		if (soundType <= 0) {
-			return;
+		if (soundType < 0) {
+			return ret;
 		}
 
 		if (this.isSoundsLoaded) {
@@ -494,39 +449,14 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 		}
 		ViberateOnTouch();
-	}
-
-	private void PlaySound(int sound) {
-		// TODO Auto-generated method stub
-		int ret = -1;
-		String soundSetup = PreferenceManager.getDefaultSharedPreferences(this)
-				.getString("sound_setup_list_preference", "0");
-		Log.i(TAG, String.format("soundSetup: %s", soundSetup));
-
-		if (this.isSoundsLoaded) {
-			if (this.soundThread != null) {
-				this.soundThread.interrupt();
-			}
-			if (soundSetup.equals("0")) {
-				// no sound
-				ret = 0;
-			} else if (soundSetup.equals("1")) {
-				ret = this.soundPool.play(soundTap, 1.0F, 1.0F, 1, 0, 1.0F);
-			} else if (soundSetup.equals("2")) {
-				// Swedish
-				ret = this.soundPool.play(sound, 1.0F, 1.0F, 1, 0, 1.0F);
-			}
-		}
-		if (ret == 0) {
-			Log.i(TAG, "Play fail");
-		}
+		return ret;
 	}
 
 	private void ViberateOnTouch() {
 		// TODO Auto-generated method stub
 
-		String viberateSetup = PreferenceManager.getDefaultSharedPreferences(
-				this).getString("viberate_setup_list_preference", "2");
+		String viberateSetup = PreferenceManager.getDefaultSharedPreferences(this).getString(
+				"viberate_setup_list_preference", "2");
 		if (viberateSetup.equals("1")) {
 			// viberate on touch
 			vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -537,8 +467,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private void ViberateOnError() {
 		// TODO Auto-generated method stub
-		String viberateSetup = PreferenceManager.getDefaultSharedPreferences(
-				this).getString("viberate_setup_list_preference", "1");
+		String viberateSetup = PreferenceManager.getDefaultSharedPreferences(this).getString(
+				"viberate_setup_list_preference", "2");
 		if (viberateSetup.equals("1") || viberateSetup.equals("2")) {
 			// viberate on Error
 			Log.e(TAG, "viberate on Error");
@@ -551,21 +481,28 @@ public class MainActivity extends Activity implements OnClickListener {
 	private void ExpressionCalculation() {
 		// TODO Auto-generated method stub
 		String expression = editTextExpression.getText().toString();
-//		Log.i(TAG, expression);
 
-		EvaluateExpression evaluateExpression = new EvaluateExpression(
-				expression);
+		// 去掉 = 右边的字符
+
+		int n = expression.indexOf("=");
+		if (n > -1) {
+			expression = expression.substring(0, n).trim();
+		}
+
+		//		Log.i(TAG, expression);
+
+		EvaluateExpression evaluateExpression = new EvaluateExpression(expression);
 
 		String s = evaluateExpression.CalculateExpression();
-		String res = String.format("%s = %s", expression, s);
+		String res = String.format("%s=%s", expression, s);
 		editTextExpression.setText(res);
 
 		editTextExpression.setSelection(editTextExpression.length());
 
 		soundThread = new SoundThread(s);
 		soundThread.start();
-		
-//		Log.i(TAG, res);
+
+		//		Log.i(TAG, res);
 	}
 
 	public class SoundThread extends Thread {
@@ -578,21 +515,20 @@ public class MainActivity extends Activity implements OnClickListener {
 		public void run() {
 			try {
 				for (int i = 0; i < soundString.length(); i++) {
-					sleep(500L);
-					PlaySoundByChar(soundString.substring(i, i+1));
+					if( soundType == 0){
+						// English
+						sleep(600L);
+					}else if( soundType == 1 ){
+						// Swedish
+						sleep(900L);
+					}else if( soundType == 2)
+					{	// Chinese
+						sleep(500L);
+					}
+					PlaySoundByChar(soundString.substring(i, i + 1));
 				}
-				// for (int i = 0;; i++) {
-				// try {
-				// if (i >= this.soundList.size())
-				// return;
-				// Integer localInteger = (Integer) this.soundList.get(i);
-				// if (localInteger == null)
-				// continue;
-				// MainActivity.this.playResultSound(localInteger.intValue());
-				// if (i == 0)
-				// sleep(600L);
 			} catch (InterruptedException e) {
-//				e.printStackTrace();
+				//				e.printStackTrace();
 				return;
 			}
 		}
