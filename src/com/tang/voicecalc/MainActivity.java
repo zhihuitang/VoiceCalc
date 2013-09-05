@@ -2,9 +2,10 @@ package com.tang.voicecalc;
 
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
+
+import com.slidingmenu.lib.SlidingMenu;
+import com.slidingmenu.lib.app.SlidingActivity;
 
 import android.media.SoundPool;
 import android.os.AsyncTask;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -19,10 +21,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends SlidingActivity implements OnClickListener {
 
 	String s = "0";
 	EditText editTextExpression;
@@ -40,15 +41,46 @@ public class MainActivity extends Activity implements OnClickListener {
 	Map<String, int[]> soundMap = new HashMap<String, int[]>();
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		/*
+		 * 初始化 SlidingActivity
+		 */
+		Log.i(TAG, "1");
+        setContentView(R.layout.main);
 		MyButton number[] = new MyButton[10];
 		MyButton symbol_dot, symbol_bracket_left, symbol_bracket_right, symbol_equal;
 		MyImageButton symbol_c, symbol_back;
 		MyButton symbol_plus, symbol_substract, symbol_multiply, symbol_divide;
+		Log.i(TAG, "2");
+        
+     // set the Behind View
+        setBehindContentView(R.layout.frame_menu);
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        SettingsPreferenceFragment sfp = new SettingsPreferenceFragment();
+        fragmentTransaction.replace(R.id.menu, sfp);
+        //fragmentTransaction.replace(R.id.content, new ContentFragment("Welcome"),"Welcome");
+        fragmentTransaction.commit();
 
-		setContentView(R.layout.main);
+        // customize the SlidingMenu
+        SlidingMenu sm = getSlidingMenu();
+        sm.setShadowWidth(50);
+        sm.setShadowDrawable(R.drawable.shadow);
+        sm.setBehindOffset(60);
+        sm.setFadeDegree(0.35f);
+        //设置slding menu的几种手势模式
+        //TOUCHMODE_FULLSCREEN 全屏模式，在content页面中，滑动，可以打开sliding menu
+        //TOUCHMODE_MARGIN 边缘模式，在content页面中，如果想打开slding ,你需要在屏幕边缘滑动才可以打开slding menu
+        //TOUCHMODE_NONE 自然是不能通过手势打开啦
+        sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+
+        //使用左上方icon可点，这样在onOptionsItemSelected里面才可以监听到R.id.home
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        
+        /*
+         * 初始化 SlidingActivity
+         */
 
 		number[0] = (MyButton) findViewById(R.id.button0);
 		number[1] = (MyButton) findViewById(R.id.button1);
@@ -556,8 +588,27 @@ public class MainActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		// return super.onOptionsItemSelected(item);
 		super.onOptionsItemSelected(item);
-		Intent intent = new Intent(this, SettingsActivity.class);
-		startActivity(intent);
+        toggle();
+//
+//		Intent intent = new Intent(this, SettingsActivity.class);
+//		startActivity(intent);
 		return false;
 	}
+
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onPause()
+	 */
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		if (this.isSoundsLoaded && this.soundThread != null) {
+			//Log.i(TAG, "soundThread interrupt");
+			// Thread interrupted by MainActivity
+			this.soundThread.interrupt();
+			soundThread = null;
+		}
+
+	}
+	
 }

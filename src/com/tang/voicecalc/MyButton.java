@@ -5,10 +5,13 @@ import android.content.SharedPreferences;
 import android.graphics.ColorMatrixColorFilter;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.Button;
 
 public class MyButton extends Button {
+	
+	String TAG = "MyButton";
 	public final float[] BT_SELECTED=new float[]
 			{ 2, 0, 0, 0, 2,
 			0, 2, 0, 0, 2,
@@ -42,7 +45,9 @@ public class MyButton extends Button {
 		// TODO Auto-generated method stub
 //		return super.onTouchEvent(event);
 		boolean bool = super.onTouchEvent(event);
+		Log.i(TAG, String.format("onTouchEvent: %d", event.getAction()));
 		switch (event.getAction()) {
+		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_UP:
 			this.getBackground().setColorFilter(new ColorMatrixColorFilter(BT_NOT_SELECTED));
 //			this.setBackgroundDrawable(this.getBackground());
@@ -53,6 +58,7 @@ public class MyButton extends Button {
 //			this.setBackgroundDrawable(this.getBackground());
 			vibrate();
 			break;
+			
 		case MotionEvent.ACTION_MOVE:
 			break;
 		default:
