@@ -47,13 +47,11 @@ public class MainActivity extends SlidingActivity implements OnClickListener {
 		/*
 		 * 初始化 SlidingActivity
 		 */
-		Log.i(TAG, "1");
         setContentView(R.layout.main);
 		MyButton number[] = new MyButton[10];
 		MyButton symbol_dot, symbol_bracket_left, symbol_bracket_right, symbol_equal;
 		MyImageButton symbol_c, symbol_back;
 		MyButton symbol_plus, symbol_substract, symbol_multiply, symbol_divide;
-		Log.i(TAG, "2");
         
      // set the Behind View
         setBehindContentView(R.layout.frame_menu);
@@ -373,6 +371,7 @@ public class MainActivity extends SlidingActivity implements OnClickListener {
 			}
 
 			PlaySoundByChar(ch);
+			ViberateOnTouch();
 
 			if (ch.charAt(0) == '#') {
 				return;
@@ -480,7 +479,6 @@ public class MainActivity extends SlidingActivity implements OnClickListener {
 				Log.e(TAG, String.format("Cannot find audio [%s]", ch));
 			}
 		}
-		ViberateOnTouch();
 		return ret;
 	}
 
@@ -489,6 +487,7 @@ public class MainActivity extends SlidingActivity implements OnClickListener {
 
 		String viberateSetup = PreferenceManager.getDefaultSharedPreferences(this).getString(
 				"viberate_setup_list_preference", "2");
+		//Log.i(TAG, String.format("viberatesetup:%s", viberateSetup));
 		if (viberateSetup.equals("1")) {
 			// viberate on touch
 			vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);

@@ -45,7 +45,6 @@ public class MyButton extends Button {
 		// TODO Auto-generated method stub
 //		return super.onTouchEvent(event);
 		boolean bool = super.onTouchEvent(event);
-		Log.i(TAG, String.format("onTouchEvent: %d", event.getAction()));
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_UP:
